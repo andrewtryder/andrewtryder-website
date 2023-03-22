@@ -11,7 +11,17 @@
 
 		gtag('config', 'G-LWNRQ8W9XQ');
   </script>
+  
+  <script src="https://cdn.jsdelivr.net/npm/@airbrake/browser"></script>
+  <script>
+	import { Notifier } from '@airbrake/browser';
 
+	const airbrake = new Notifier({
+  	projectId: 1,
+  	projectKey: 'a185d67e8442601ced4ab57cc800400e',
+  	environment: 'production'
+	});
+  </script>
   <!-- Main part of head. -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
