@@ -3,3 +3,6 @@
 
   [plugins.inputs]
     skipPatterns = ['https://fonts.gstatic.com', 'https://fonts.googleapis.com']
+
+[[plugins]]
+  package = "@netlify/plugin-emails"
