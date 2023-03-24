@@ -3,13 +3,3 @@
 
   [plugins.inputs]
     skipPatterns = ['https://fonts.gstatic.com', 'https://fonts.googleapis.com']
-
-[[plugins]]
- package = "netlify-plugin-visual-diff"
- [plugins.inputs]
-   ignoreSelector = "#today,.copyright"
-
-   [[plugins.inputs.browser]]
-     name = "chrome"
-     width = 1024
-     height = 768
