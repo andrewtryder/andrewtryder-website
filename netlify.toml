@@ -5,4 +5,16 @@
     skipPatterns = ['https://fonts.gstatic.com', 'https://fonts.googleapis.com']
 
 [[plugins]]
-  package = "@netlify/plugin-emails"
+ package = "netlify-plugin-visual-diff"
+ [plugins.inputs]
+   ignoreSelector = "#today,.copyright"
+
+   [[plugins.inputs.browser]]
+     name = "chrome"
+     width = 1024
+     height = 768
+
+   [[plugins.inputs.browser]]
+     name = "firefox"
+     width = 1920
+     height = 1080
