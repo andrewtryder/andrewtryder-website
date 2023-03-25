@@ -5,6 +5,6 @@ This is my personal website that's built using Flask Freeze and deployed through
 Inspired by this awesome post: https://medium.com/@francescaguiducci/how-to-build-a-simple-personal-website-with-python-flask-and-netlify-d800c97c283d
 
 Integrations:
-- Airbrake.io
-- Lighthouse
-- Cloudinary
+- Lighthouse (accessibility)
+- Cloudinary (image optimization)
+- Formspree (contact form)
