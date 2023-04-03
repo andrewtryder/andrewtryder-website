@@ -20,7 +20,7 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       - name: Run a multi-line script
-      run: 
+      run: | 
         curl -X POST \
           -H 'Content-type: application/json' \
           -H 'auth-token: d32b63f7-22dd-4516-afa8-3e73bf0029ce' \
