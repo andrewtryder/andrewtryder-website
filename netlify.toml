@@ -1,4 +1,4 @@
 [build]
   publish = "."
-
-# No build step — static index.html at repo root.
+  # Override legacy Flask freeze command still set in the Netlify UI.
+  command = "true"
