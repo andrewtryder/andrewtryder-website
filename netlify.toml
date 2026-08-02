@@ -2,3 +2,19 @@
   publish = "."
   # Override legacy Flask freeze command still set in the Netlify UI.
   command = "true"
+
+[build.environment]
+  # UI still installs @netlify/plugin-lighthouse@4, which requires Node <20.
+  NODE_VERSION = "18"
+
+[[plugins]]
+  package = "netlify-plugin-checklinks"
+
+  [plugins.inputs]
+    skipPatterns = [
+      "https://fonts.gstatic.com",
+      "https://fonts.googleapis.com",
+      "https://www.linkedin.com",
+      "https://www.flickr.com",
+      "https://github.com"
+    ]
