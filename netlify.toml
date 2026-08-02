@@ -1,15 +1,4 @@
 [build]
   publish = "."
-  command = ""
 
-[[plugins]]
-  package = "netlify-plugin-checklinks"
-
-  [plugins.inputs]
-    skipPatterns = [
-      'https://fonts.gstatic.com',
-      'https://fonts.googleapis.com',
-      'https://www.linkedin.com',
-      'https://www.flickr.com',
-      'https://github.com'
-    ]
+# No build step — static index.html at repo root.
