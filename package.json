@@ -3,5 +3,9 @@
   "private": true,
   "engines": {
     "node": "22.x"
+  },
+  "scripts": {
+    "dev": "npx serve .",
+    "start": "python3 -m http.server 8000"
   }
 }

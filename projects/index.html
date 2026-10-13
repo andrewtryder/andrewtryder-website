@@ -1,0 +1,291 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Projects — Andrew Ryder</title>
+  <meta name="description" content="Selected software engineering projects, civic web applications, and open-source tools developed by Andrew Ryder.">
+  <link rel="canonical" href="https://www.andrewtryder.com/projects/">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Projects — Andrew Ryder">
+  <meta property="og:description" content="Selected software engineering projects, civic web applications, and open-source tools developed by Andrew Ryder.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.andrewtryder.com/projects/">
+  <meta property="og:site_name" content="Andrew Ryder">
+
+  <!-- Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a href="/" class="site-title" aria-label="Andrew Ryder Home">Andrew Ryder</a>
+      <nav class="site-nav" aria-label="Primary Navigation">
+        <a href="/" class="nav-link">Home</a>
+        <a href="/projects/" class="nav-link active" aria-current="page">Projects</a>
+        <a href="/home-assistant/" class="nav-link">Home Assistant</a>
+        <a href="/about/" class="nav-link">About</a>
+        <a href="/creative/" class="nav-link">Creative</a>
+        <a href="/contact/" class="nav-link">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <section>
+      <div class="container">
+        <div class="section-header">
+          <span class="label-tech">Portfolio &middot; Engineering</span>
+          <h1 class="section-title">Projects</h1>
+          <p class="section-intro">
+            A selection of independently engineered applications, systems utilities, and open-source tools built to solve practical real-world problems.
+          </p>
+        </div>
+
+        <!-- Primary Featured Applications -->
+        <div style="margin-top: 2.5rem;">
+          <h2 style="font-size: 1.45rem; margin-bottom: 0.5rem;">Featured Applications</h2>
+          <p class="muted" style="margin-bottom: 1.5rem;">Two independent full-stack projects built on modern edge infrastructure.</p>
+
+          <div class="selected-work-grid">
+            <!-- PoaIndex -->
+            <article class="project-card" data-modal-target="modal-poaindex" tabindex="0" role="button" aria-haspopup="dialog" aria-label="Learn more about PoaIndex">
+              <div class="project-card-header">
+                <span class="project-card-tag">Independent project &middot; Private source</span>
+                <h3 class="project-card-title">PoaIndex</h3>
+                <p class="project-card-description">
+                  Making turfgrass research easier to compare through historical trial data and location-aware species and cultivar recommendations.
+                </p>
+              </div>
+              <div class="project-card-footer">
+                <span class="label-tech">Cloudflare D1 &middot; Workers</span>
+                <button type="button" class="card-action-link" data-modal-target="modal-poaindex">Learn more &rarr;</button>
+              </div>
+            </article>
+
+            <!-- NH Fuel Watch -->
+            <article class="project-card" data-modal-target="modal-nhfuelwatch" tabindex="0" role="button" aria-haspopup="dialog" aria-label="Learn more about NH Fuel Watch">
+              <div class="project-card-header">
+                <span class="project-card-tag">Independent project &middot; Private source</span>
+                <h3 class="project-card-title">NH Fuel Watch</h3>
+                <p class="project-card-description">
+                  Helping New Hampshire residents discover heating-fuel providers, compare publicly posted oil and propane prices, and explore historical trends.
+                </p>
+              </div>
+              <div class="project-card-footer">
+                <span class="label-tech">React Router SSR &middot; D1</span>
+                <button type="button" class="card-action-link" data-modal-target="modal-nhfuelwatch">Learn more &rarr;</button>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <!-- Public & Open Source Projects -->
+        <div style="margin-top: 4.5rem;">
+          <div class="section-header" style="margin-bottom: 2rem;">
+            <span class="label-tech">Open Source Tools</span>
+            <h2 style="font-size: 1.6rem; margin-bottom: 0.5rem;">Public Tools &amp; Libraries</h2>
+            <p class="muted">Compact, single-purpose software developed with minimal dependencies and direct hardware integration.</p>
+          </div>
+
+          <div class="compact-project-list">
+            <!-- NetWatcher for UniFi -->
+            <article class="compact-project-item">
+              <div class="compact-project-header">
+                <h3 class="compact-project-title">NetWatcher for UniFi</h3>
+                <div class="compact-project-links">
+                  <a href="https://github.com/andrewtryder/unifi-netwatcher" target="_blank" rel="noopener">GitHub Repository &rarr;</a>
+                </div>
+              </div>
+              <p class="compact-project-desc">
+                A lightweight unknown-device monitor for UniFi network controllers. Features a local Web dashboard, SQLite historical logging, an intuitive approval workflow to trust or ignore newly detected MAC addresses, and pluggable alerts for Pushover and generic webhooks. Packaged as a secure, non-root single-container deployment.
+              </p>
+            </article>
+
+            <!-- SNHU Tools -->
+            <article class="compact-project-item">
+              <div class="compact-project-header">
+                <h3 class="compact-project-title">SNHU Tools</h3>
+                <div class="compact-project-links">
+                  <a href="https://snhu-tools.vercel.app" target="_blank" rel="noopener">Live Web Application &rarr;</a>
+                  <a href="https://github.com/andrewtryder/snhu-tools" target="_blank" rel="noopener">GitHub Repository &rarr;</a>
+                </div>
+              </div>
+              <p class="compact-project-desc">
+                An unofficial interactive academic planning suite for Southern New Hampshire University students. Unifies interactive degree prerequisite visualization, course dependency graph rendering, and transfer equivalency lookups using Next.js, React Flow, TypeScript, and PostgreSQL.
+              </p>
+            </article>
+
+            <!-- CyberPower UPS -->
+            <article class="compact-project-item">
+              <div class="compact-project-header">
+                <h3 class="compact-project-title">CyberPower UPS</h3>
+                <div class="compact-project-links">
+                  <a href="https://github.com/andrewtryder/cyberpower-ups" target="_blank" rel="noopener">GitHub Repository &rarr;</a>
+                </div>
+              </div>
+              <p class="compact-project-desc">
+                A modern C++17 library and command-line utility (<code>cpups</code>) for communicating directly with CyberPower UPS devices over USB HID and serial. Created by reverse-engineering vendor driver protocols to provide a native Apple Silicon / arm64 binary without Rosetta translation overhead or proprietary runtime dependencies.
+              </p>
+            </article>
+
+            <!-- DockNet -->
+            <article class="compact-project-item">
+              <div class="compact-project-header">
+                <h3 class="compact-project-title">DockNet</h3>
+                <div class="compact-project-links">
+                  <a href="https://github.com/andrewtryder/docknet" target="_blank" rel="noopener">GitHub Repository &rarr;</a>
+                </div>
+              </div>
+              <p class="compact-project-desc">
+                A native Swift macOS menu bar utility for observing physical Ethernet and Wi-Fi network failover. Quietly tracks network adapter state changes and delivers optional notifications while leaving system routing tables, Wi-Fi radios, and VPN/Tailscale overlays entirely unperturbed.
+              </p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-content">
+      <p class="footer-note">
+        Andrew Ryder &middot; Built with plain HTML &amp; CSS &middot; Minimal Practical Workshop
+      </p>
+      <div class="footer-links">
+        <a href="https://github.com/andrewtryder" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://www.linkedin.com/in/andrewtryder/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://www.flickr.com/photos/andrewtryder/" target="_blank" rel="noopener">Flickr</a>
+        <a href="mailto:atr@andrewtryder.com">Email</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- PoaIndex Modal -->
+  <dialog id="modal-poaindex" class="project-modal" aria-labelledby="modal-poaindex-title" aria-describedby="modal-poaindex-desc">
+    <div class="modal-inner">
+      <div class="modal-header">
+        <div class="modal-title-wrap">
+          <span class="modal-tag">Independent project &middot; Private source</span>
+          <h2 id="modal-poaindex-title" class="modal-title">PoaIndex</h2>
+          <p id="modal-poaindex-desc" class="modal-subtitle">
+            Historical turfgrass evaluation data synthesis and location-aware cultivar recommendations.
+          </p>
+        </div>
+        <button type="button" class="modal-close-btn" data-modal-close aria-label="Close PoaIndex modal">
+          &times; Close
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <div class="modal-section">
+          <span class="modal-section-title">The Problem</span>
+          <p>
+            The National Turfgrass Evaluation Program (NTEP) publishes valuable agronomic trial data, but the records are dispersed across decades of disparate PDF and tabular reports. Comparing turfgrass cultivars across multiple multi-year trial cycles and identifying varieties proven to perform in specific geographic regions requires laborious manual cross-referencing.
+          </p>
+        </div>
+
+        <div class="modal-section">
+          <span class="modal-section-title">The Approach</span>
+          <p>
+            PoaIndex extracts, audits, and normalizes decades of historical trial results into a structured turfgrass quality corpus. An edge-based scoring and recommendation engine evaluates multi-year cultivar performance consistency against local USDA turf zones and trial locations.
+          </p>
+        </div>
+
+        <div class="modal-section">
+          <span class="modal-section-title">Selected Features</span>
+          <ul class="modal-features-list">
+            <li>Curated historical quality corpus covering multiple grass species and multi-year trial cycles.</li>
+            <li>Location-aware recommendation engine matching regional climate conditions and turf zones.</li>
+            <li>Cultivar search and side-by-side trial quality comparisons.</li>
+            <li>Read-only edge API designed for high-availability querying without credential barriers.</li>
+            <li>Clean static web exploration interface requiring zero account creation.</li>
+          </ul>
+        </div>
+
+        <div class="modal-section">
+          <span class="modal-section-title">Technical Description</span>
+          <div class="modal-tech-box">
+            Ingestion &amp; certification pipeline built in Node.js and TypeScript. Read-only HTTP API hosted on Cloudflare Workers backed by Cloudflare D1 serverless SQLite. Static web front end built with Vite and React. Cold-storage source archive stored in Cloudflare R2.
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <span class="modal-privacy-note">Source code is private.</span>
+        <a href="https://www.poaindex.com/" target="_blank" rel="noopener" class="btn btn-primary">
+          Visit live website (poaindex.com) &rarr;
+        </a>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- NH Fuel Watch Modal -->
+  <dialog id="modal-nhfuelwatch" class="project-modal" aria-labelledby="modal-nhfuelwatch-title" aria-describedby="modal-nhfuelwatch-desc">
+    <div class="modal-inner">
+      <div class="modal-header">
+        <div class="modal-title-wrap">
+          <span class="modal-tag">Independent project &middot; Private source</span>
+          <h2 id="modal-nhfuelwatch-title" class="modal-title">NH Fuel Watch</h2>
+          <p id="modal-nhfuelwatch-desc" class="modal-subtitle">
+            Civic heating-fuel price transparency and municipal provider discovery for New Hampshire residents.
+          </p>
+        </div>
+        <button type="button" class="modal-close-btn" data-modal-close aria-label="Close NH Fuel Watch modal">
+          &times; Close
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <div class="modal-section">
+          <span class="modal-section-title">The Problem</span>
+          <p>
+            Residential heating oil and propane pricing varies considerably across New Hampshire suppliers and fluctuates frequently throughout the winter. Because pricing is scattered across dozens of individual company websites, homeowners lack a centralized, neutral reference for posted cash rates or seasonal price trends.
+          </p>
+        </div>
+
+        <div class="modal-section">
+          <span class="modal-section-title">The Approach</span>
+          <p>
+            NH Fuel Watch operates as a public-benefit civic web application that automatically collects publicly posted prices from regional fuel suppliers daily. Built strictly as an informational utility—not a broker, middleman, or marketplace—it maintains observational integrity by logging discrete, immutable price points with explicit source provenance and observation dates.
+          </p>
+        </div>
+
+        <div class="modal-section">
+          <span class="modal-section-title">Selected Features</span>
+          <ul class="modal-features-list">
+            <li>Daily price tracking for #2 heating oil and propane across New Hampshire municipalities.</li>
+            <li>Provider discovery based on verified municipal service coverage rather than marketing claims.</li>
+            <li>Price observations recorded as immutable integers in mills ($0.001) with source disclosures.</li>
+            <li>Historical price trend visualizations across seasons and regions.</li>
+            <li>Server-rendered civic utility with zero advertising, affiliate links, or bulk scraper APIs.</li>
+          </ul>
+        </div>
+
+        <div class="modal-section">
+          <span class="modal-section-title">Technical Description</span>
+          <div class="modal-tech-box">
+            Full-stack TypeScript application built with React Router v8 using Server-Side Rendering (SSR). Deployed on Cloudflare Workers edge runtime with Cloudflare D1 serverless SQLite. Includes automated scheduled ingestion pipelines with fixture-based scraper verification.
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <span class="modal-privacy-note">Source code is private.</span>
+        <a href="https://nhfuelwatch.com/" target="_blank" rel="noopener" class="btn btn-primary">
+          Visit live website (nhfuelwatch.com) &rarr;
+        </a>
+      </div>
+    </div>
+  </dialog>
+
+  <script src="/js/main.js"></script>
+</body>
+</html>

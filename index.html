@@ -1,293 +1,515 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Andrew Ryder — Agilist, Fabricator, Photographer</title>
-<meta name="description" content="Andrew Ryder — agile coach by trade, metal fabricator and photographer by instinct.">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Andrew Ryder — Useful technology, thoughtfully built</title>
+  <meta name="description" content="Personal website of Andrew Ryder. Hands-on technologist working across software development, systems engineering, infrastructure, IT operations, and practical problem-solving.">
+  <link rel="canonical" href="https://www.andrewtryder.com/">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <!-- Open Graph / Meta -->
+  <meta property="og:title" content="Andrew Ryder — Useful technology, thoughtfully built">
+  <meta property="og:description" content="Personal website of Andrew Ryder. Software engineering, infrastructure, IT operations, and practical problem-solving.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.andrewtryder.com/">
+  <meta property="og:site_name" content="Andrew Ryder">
 
-<style>
-  :root{
-    --ink:#15171a;
-    --ink-2:#1f2225;
-    --paper:#eceee9;
-    --paper-2:#e2e5df;
-    --text-soft:#52585c;
-    --line-dark:rgba(255,255,255,.16);
-    --line-light:#c7cbc2;
-    --spark:#ff5a1f;
-    --blue:#2451c4;
-    --radius:2px;
-    --wrap:1180px;
-  }
+  <!-- Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
 
-  *{box-sizing:border-box;}
-  html{scroll-behavior:smooth;}
-  body{
-    margin:0;
-    background:var(--paper);
-    color:var(--ink);
-    font-family:'Inter',sans-serif;
-    -webkit-font-smoothing:antialiased;
-    overflow-x:hidden;
-  }
-  h1,h2,h3{
-    font-family:'Space Grotesk',sans-serif;
-    margin:0;
-    letter-spacing:-0.01em;
-  }
-  .mono{
-    font-family:'IBM Plex Mono',monospace;
-    letter-spacing:.04em;
-  }
-  a{color:inherit;text-decoration:none;}
-  .wrap{max-width:var(--wrap);margin:0 auto;padding:0 32px;}
-  img{display:block;max-width:100%;}
-  button{font-family:inherit;cursor:pointer;}
-
-  @media (prefers-reduced-motion: reduce){
-    *{animation:none !important; transition:none !important; scroll-behavior:auto !important;}
-  }
-
-  /* ---------- reveal on scroll ---------- */
-  .reveal{opacity:0; transform:translateY(18px); transition:opacity .7s ease, transform .7s ease;}
-  .reveal.in{opacity:1; transform:translateY(0);}
-
-  /* ---------- nav ---------- */
-  .nav{
-    position:fixed; top:0; left:0; right:0; z-index:50;
-    display:flex; align-items:center; justify-content:space-between;
-    padding:22px 32px;
-    color:#fff;
-    transition:background .3s ease, padding .3s ease, border-color .3s ease;
-    border-bottom:1px solid transparent;
-  }
-  .nav.scrolled{
-    background:rgba(21,23,26,.86);
-    backdrop-filter:blur(10px);
-    padding:14px 32px;
-    border-bottom:1px solid var(--line-dark);
-  }
-  .nav-logo{font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:1.05rem;}
-  .nav-logo span{color:var(--spark);}
-  .nav-links{display:flex; gap:36px; list-style:none; margin:0; padding:0;}
-  .nav-links a{
-    font-family:'IBM Plex Mono',monospace; font-size:.72rem; letter-spacing:.12em;
-    text-transform:uppercase; opacity:.75; position:relative; padding-bottom:4px;
-    transition:opacity .2s ease;
-  }
-  .nav-links a::after{
-    content:''; position:absolute; left:0; bottom:0; height:1px; width:0;
-    background:var(--spark); transition:width .25s ease;
-  }
-  .nav-links a:hover{opacity:1;}
-  .nav-links a:hover::after{width:100%;}
-  @media (max-width:640px){ .nav-links{gap:20px;} .nav-links a{font-size:.65rem;} }
-
-  /* ---------- hero ---------- */
-  .hero{
-    position:relative;
-    min-height:100vh;
-    background:
-      radial-gradient(ellipse 900px 500px at 82% 12%, rgba(255,90,31,.16), transparent 60%),
-      linear-gradient(var(--ink), var(--ink));
-    color:#fff;
-    display:flex; flex-direction:column; justify-content:center;
-    padding:120px 0 0;
-    overflow:hidden;
-  }
-  .hero::before{
-    /* faint blueprint grid */
-    content:'';
-    position:absolute; inset:0;
-    background-image:
-      linear-gradient(rgba(255,255,255,.045) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255,255,255,.045) 1px, transparent 1px);
-    background-size:56px 56px;
-    mask-image:linear-gradient(180deg, transparent, #000 18%, #000 82%, transparent);
-    pointer-events:none;
-  }
-  .crosshair{
-    position:absolute; width:22px; height:22px; opacity:.55; z-index:2;
-  }
-  .crosshair::before, .crosshair::after{
-    content:''; position:absolute; background:rgba(255,255,255,.5);
-  }
-  .crosshair::before{ top:50%; left:0; width:100%; height:1px; transform:translateY(-50%);}
-  .crosshair::after{ left:50%; top:0; height:100%; width:1px; transform:translateX(-50%);}
-  .crosshair.tl{top:96px; left:32px;}
-  .crosshair.tr{top:96px; right:32px;}
-  @media (max-width:640px){ .crosshair{display:none;} }
-
-  .hero-inner{position:relative; z-index:2;}
-  .eyebrow{
-    font-size:.72rem; text-transform:uppercase; color:var(--spark);
-    display:flex; align-items:center; gap:10px; margin-bottom:26px;
-  }
-  .eyebrow::before{content:''; width:26px; height:1px; background:var(--spark);}
-
-  .hero h1{
-    font-size:clamp(3rem, 9vw, 7.2rem);
-    font-weight:700;
-    line-height:.94;
-    text-transform:uppercase;
-  }
-  .hero h1 em{
-    font-style:normal; color:transparent;
-    -webkit-text-stroke:1.5px rgba(255,255,255,.85);
-  }
-  .hero-sub{
-    max-width:560px; margin-top:28px;
-    font-size:1.1rem; line-height:1.6; color:rgba(255,255,255,.72);
-  }
-  .hero-cta{margin-top:44px; display:flex; gap:16px; flex-wrap:wrap;}
-  .btn{
-    font-family:'IBM Plex Mono',monospace; font-size:.75rem; text-transform:uppercase;
-    letter-spacing:.08em; padding:15px 26px; border-radius:var(--radius);
-    display:inline-flex; align-items:center; gap:10px;
-    transition:transform .2s ease, background .2s ease, color .2s ease, border-color .2s ease;
-  }
-  .btn-primary{background:var(--spark); color:#fff;}
-  .btn-primary:hover{transform:translateY(-2px); background:#ff6f3a;}
-  .btn-ghost{border:1px solid rgba(255,255,255,.3); color:#fff;}
-  .btn-ghost:hover{border-color:#fff; transform:translateY(-2px);}
-
-  /* title block strip at base of hero */
-  .titleblock{
-    position:relative; z-index:2; margin-top:auto;
-    border-top:1px solid var(--line-dark);
-    background:rgba(255,255,255,.03);
-  }
-  .titleblock .wrap{
-    display:grid; grid-template-columns:repeat(4,1fr);
-    padding:16px 32px;
-  }
-  .tb-item{padding:0 20px; border-left:1px solid var(--line-dark);}
-  .tb-item:first-child{border-left:none; padding-left:0;}
-  .tb-label{font-size:.62rem; color:rgba(255,255,255,.4); text-transform:uppercase; letter-spacing:.14em;}
-  .tb-value{font-size:.78rem; color:rgba(255,255,255,.85); margin-top:4px;}
-  @media (max-width:800px){
-    .titleblock .wrap{grid-template-columns:1fr 1fr; row-gap:16px;}
-    .tb-item:nth-child(3){border-left:none;}
-  }
-
-  /* ---------- section shell ---------- */
-  section{padding:140px 0;}
-
-  /* ---------- contact ---------- */
-  .contact{background:var(--ink); color:#fff; position:relative; overflow:hidden;}
-  .contact::before{
-    content:'';
-    position:absolute; inset:0;
-    background-image:
-      linear-gradient(rgba(255,255,255,.04) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255,255,255,.04) 1px, transparent 1px);
-    background-size:56px 56px;
-  }
-  .contact .wrap{position:relative; z-index:2;}
-  .contact-solo{max-width:640px;}
-  .contact h2{font-size:clamp(2rem, 4vw, 3.2rem); font-weight:700; margin-bottom:20px;}
-  .contact p{color:rgba(255,255,255,.65); font-size:1.05rem; line-height:1.65; max-width:44ch;}
-  .email-link{
-    display:inline-flex; align-items:center; gap:10px;
-    margin-top:32px; font-size:1.05rem; color:#fff;
-    padding-bottom:10px; border-bottom:1px solid var(--line-dark);
-    transition:border-color .2s ease, color .2s ease, gap .2s ease;
-  }
-  .email-link:hover{border-color:var(--spark); color:var(--spark); gap:14px;}
-  .socials{display:flex; gap:14px; margin-top:44px;}
-  .social-btn{
-    width:42px; height:42px; border:1px solid var(--line-dark); border-radius:50%;
-    display:flex; align-items:center; justify-content:center;
-    transition:border-color .2s ease, transform .2s ease, background .2s ease;
-  }
-  .social-btn:hover{border-color:var(--spark); background:rgba(255,90,31,.1); transform:translateY(-2px);}
-  .social-btn svg{width:18px; height:18px; fill:#fff;}
-</style>
+  <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
 
-<nav class="nav" id="nav">
-  <a href="#top" class="nav-logo">ANDREW<span>.</span>RYDER</a>
-  <ul class="nav-links">
-    <li><a href="https://github.com/andrewtryder" target="_blank" rel="noopener">Work</a></li>
-    <li><a href="mailto:atr@andrewtryder.com">Contact</a></li>
-  </ul>
-</nav>
-
-<header class="hero" id="top">
-  <div class="crosshair tl"></div>
-  <div class="crosshair tr"></div>
-  <div class="wrap hero-inner">
-    <div class="eyebrow mono">DWG NO. AR&#8211;2026 &middot; REV C</div>
-    <h1>Andrew<br><em>Ryder</em></h1>
-    <div class="hero-cta">
-      <a href="https://github.com/andrewtryder" class="btn btn-primary" target="_blank" rel="noopener">View the work &rarr;</a>
-      <a href="mailto:atr@andrewtryder.com" class="btn btn-ghost">Get in touch</a>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a href="/" class="site-title" aria-label="Andrew Ryder Home">Andrew Ryder</a>
+      <nav class="site-nav" aria-label="Primary Navigation">
+        <a href="/" class="nav-link active" aria-current="page">Home</a>
+        <a href="/projects/" class="nav-link">Projects</a>
+        <a href="/home-assistant/" class="nav-link">Home Assistant</a>
+        <a href="/about/" class="nav-link">About</a>
+        <a href="/creative/" class="nav-link">Creative</a>
+        <a href="/contact/" class="nav-link">Contact</a>
+      </nav>
     </div>
-  </div>
+  </header>
 
-  <div class="titleblock">
-    <div class="wrap">
-      <div class="tb-item">
-        <div class="tb-label">Discipline</div>
-        <div class="tb-value">Agile Practice</div>
+  <main id="main-content">
+    <!-- Restrained Editorial Introduction -->
+    <section class="hero-intro">
+      <div class="container">
+        <span class="hero-eyebrow">Practical Workshop &middot; Massachusetts, US</span>
+        <h1 class="hero-headline">Useful technology, thoughtfully built.</h1>
+        <p class="hero-body">
+          I work across software, infrastructure, IT support, and the practical problems in between.
+        </p>
+        <p class="hero-body muted">
+          I enjoy figuring out how things work, solving real-world problems, and building tools that make everyday life a little easier.
+        </p>
+        <div class="hero-links">
+          <a href="/projects/">Explore selected projects &rarr;</a>
+          <a href="/about/">Read background &amp; philosophy &rarr;</a>
+        </div>
       </div>
-      <div class="tb-item">
-        <div class="tb-label">Materials</div>
-        <div class="tb-value">Steel &middot; Titanium &middot; Pixels</div>
+    </section>
+
+    <!-- Selected Work Section -->
+    <section id="selected-work">
+      <div class="container">
+        <div class="section-header">
+          <span class="label-tech">Featured Applications</span>
+          <h2 class="section-title">Selected Work</h2>
+          <p class="section-intro">
+            Two independently developed web applications focused on civic utility, domain data synthesis, and reliable edge infrastructure.
+          </p>
+        </div>
+
+        <!-- Primary Cards (Two equal-width minimal cards on desktop, stacked on mobile) -->
+        <div class="selected-work-grid">
+          <!-- Card 1: PoaIndex -->
+          <article class="project-card" data-modal-target="modal-poaindex" tabindex="0" role="button" aria-haspopup="dialog" aria-label="Learn more about PoaIndex">
+            <div class="project-card-header">
+              <span class="project-card-tag">Independent project &middot; Private source</span>
+              <h3 class="project-card-title">PoaIndex</h3>
+              <p class="project-card-description">
+                Making turfgrass research easier to compare through historical trial data and location-aware species and cultivar recommendations.
+              </p>
+            </div>
+            <div class="project-card-footer">
+              <span class="label-tech">Cloudflare D1 &middot; Workers</span>
+              <button type="button" class="card-action-link" data-modal-target="modal-poaindex">Learn more &rarr;</button>
+            </div>
+          </article>
+
+          <!-- Card 2: NH Fuel Watch -->
+          <article class="project-card" data-modal-target="modal-nhfuelwatch" tabindex="0" role="button" aria-haspopup="dialog" aria-label="Learn more about NH Fuel Watch">
+            <div class="project-card-header">
+              <span class="project-card-tag">Independent project &middot; Private source</span>
+              <h3 class="project-card-title">NH Fuel Watch</h3>
+              <p class="project-card-description">
+                Helping New Hampshire residents discover heating-fuel providers, compare publicly posted oil and propane prices, and explore historical trends.
+              </p>
+            </div>
+            <div class="project-card-footer">
+              <span class="label-tech">React Router SSR &middot; D1</span>
+              <button type="button" class="card-action-link" data-modal-target="modal-nhfuelwatch">Learn more &rarr;</button>
+            </div>
+          </article>
+        </div>
+
+        <!-- Additional Selected Projects (Compact text-first entries) -->
+        <div style="margin-top: 3.5rem;">
+          <div class="section-header" style="margin-bottom: 1.5rem;">
+            <span class="label-tech">Open Source &middot; Utilities</span>
+            <h3 style="font-size: 1.45rem; margin-bottom: 0.25rem;">Additional Selected Projects</h3>
+            <p class="muted" style="font-size: 0.95rem; margin-bottom: 0;">Focused tools built to solve specific hardware, monitoring, and educational problems.</p>
+          </div>
+
+          <div class="compact-project-list">
+            <!-- NetWatcher for UniFi -->
+            <article class="compact-project-item">
+              <div class="compact-project-header">
+                <h4 class="compact-project-title">NetWatcher for UniFi</h4>
+                <div class="compact-project-links">
+                  <a href="https://github.com/andrewtryder/unifi-netwatcher" target="_blank" rel="noopener">GitHub &rarr;</a>
+                </div>
+              </div>
+              <p class="compact-project-desc">
+                A lightweight unknown-device monitor for UniFi network controllers featuring an integrated Web UI, SQLite history, approval workflows, and pluggable Pushover and webhook alerts.
+              </p>
+            </article>
+
+            <!-- SNHU Tools -->
+            <article class="compact-project-item">
+              <div class="compact-project-header">
+                <h4 class="compact-project-title">SNHU Tools</h4>
+                <div class="compact-project-links">
+                  <a href="https://snhu-tools.vercel.app" target="_blank" rel="noopener">Live Site &rarr;</a>
+                  <a href="https://github.com/andrewtryder/snhu-tools" target="_blank" rel="noopener">GitHub &rarr;</a>
+                </div>
+              </div>
+              <p class="compact-project-desc">
+                Unofficial interactive academic planning, degree maps, course prerequisite graphs, and transfer equivalency tools built for SNHU students based on published catalog data.
+              </p>
+            </article>
+
+            <!-- CyberPower UPS -->
+            <article class="compact-project-item">
+              <div class="compact-project-header">
+                <h4 class="compact-project-title">CyberPower UPS</h4>
+                <div class="compact-project-links">
+                  <a href="https://github.com/andrewtryder/cyberpower-ups" target="_blank" rel="noopener">GitHub &rarr;</a>
+                </div>
+              </div>
+              <p class="compact-project-desc">
+                A modern C++17 library and command-line tool for communicating directly with CyberPower UPS hardware over USB HID and serial, engineered to eliminate legacy x86 driver dependencies on Apple Silicon.
+              </p>
+            </article>
+
+            <!-- DockNet -->
+            <article class="compact-project-item">
+              <div class="compact-project-header">
+                <h4 class="compact-project-title">DockNet</h4>
+                <div class="compact-project-links">
+                  <a href="https://github.com/andrewtryder/docknet" target="_blank" rel="noopener">GitHub &rarr;</a>
+                </div>
+              </div>
+              <p class="compact-project-desc">
+                A native Swift macOS menu bar utility providing quiet visibility into physical Ethernet and Wi-Fi failover transitions without interfering with system routing or VPN tunnels.
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="tb-item">
-        <div class="tb-label">Based</div>
-        <div class="tb-value">Massachusetts, US</div>
+    </section>
+
+    <!-- Home Assistant Integrations Section (Teaser & Complete Link) -->
+    <section id="home-assistant">
+      <div class="container">
+        <div class="section-header">
+          <span class="label-tech">Smart Home &middot; Ecosystem</span>
+          <h2 class="section-title">Home Assistant Integrations</h2>
+          <p class="section-intro">
+            I actively develop and maintain nine public custom integrations for Home Assistant, connecting everyday physical appliances, utilities, and telecom services into local automation dashboards.
+          </p>
+        </div>
+
+        <div style="margin-top: 1.5rem;">
+          <table class="ha-index-table" aria-label="Sample Home Assistant Integrations">
+            <tbody>
+              <tr class="ha-row">
+                <td class="ha-cell-name">
+                  <span class="ha-name">Smart Oil Gauge</span>
+                </td>
+                <td class="ha-cell-desc">
+                  Connects heating oil tanks to Home Assistant, exposing gallons remaining, tank percentage, daily burn rate, and runout projections.
+                </td>
+                <td class="ha-cell-link">
+                  <a href="https://github.com/andrewtryder/ha-smart-oil-gauge" target="_blank" rel="noopener">GitHub &rarr;</a>
+                </td>
+              </tr>
+              <tr class="ha-row">
+                <td class="ha-cell-name">
+                  <span class="ha-name">Eversource Rates</span>
+                </td>
+                <td class="ha-cell-desc">
+                  Retrieves public Eversource electricity tariffs for energy dashboard pricing (USD/kWh) and monitors municipality-level outage alerts.
+                </td>
+                <td class="ha-cell-link">
+                  <a href="https://github.com/andrewtryder/ha-eversource" target="_blank" rel="noopener">GitHub &rarr;</a>
+                </td>
+              </tr>
+              <tr class="ha-row">
+                <td class="ha-cell-name">
+                  <span class="ha-name">iGuardStove</span>
+                </td>
+                <td class="ha-cell-desc">
+                  Stove safety monitoring and remote shutoff control for iGuardStove / iGuardFire hardware, with event-driven motion and emergency triggers.
+                </td>
+                <td class="ha-cell-link">
+                  <a href="https://github.com/andrewtryder/ha-iguardstove" target="_blank" rel="noopener">GitHub &rarr;</a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div style="margin-top: 2rem;">
+            <a href="/home-assistant/" class="btn btn-outline">
+              View all 9 Home Assistant integrations &rarr;
+            </a>
+          </div>
+        </div>
       </div>
-      <div class="tb-item">
-        <div class="tb-label">Scale</div>
-        <div class="tb-value">1:1</div>
+    </section>
+
+    <!-- Technical Experience & Practical Philosophy -->
+    <section id="experience">
+      <div class="container">
+        <div class="section-header">
+          <span class="label-tech">Capabilities &middot; Practice</span>
+          <h2 class="section-title">Technical Experience</h2>
+          <p class="section-intro">
+            A hands-on background grounded in practical problem-solving across engineering, infrastructure operations, and technical leadership.
+          </p>
+        </div>
+
+        <div class="experience-grid">
+          <div class="experience-block">
+            <h3 class="experience-block-title">Engineering &amp; Systems</h3>
+            <ul class="experience-list">
+              <li class="experience-item">
+                <strong>Software Development</strong>
+                <span>TypeScript, Python, C++, Swift</span>
+              </li>
+              <li class="experience-item">
+                <strong>Edge &amp; Cloud Infrastructure</strong>
+                <span>Cloudflare Workers, D1, R2, AWS</span>
+              </li>
+              <li class="experience-item">
+                <strong>Data Modeling &amp; Persistence</strong>
+                <span>SQLite, PostgreSQL, Schema Design</span>
+              </li>
+              <li class="experience-item">
+                <strong>APIs &amp; Applied AI</strong>
+                <span>REST/JSON, Webhooks, LLM Workflows</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="experience-block">
+            <h3 class="experience-block-title">Operations &amp; Infrastructure</h3>
+            <ul class="experience-list">
+              <li class="experience-item">
+                <strong>Systems Administration</strong>
+                <span>Linux &amp; Windows Server, Docker</span>
+              </li>
+              <li class="experience-item">
+                <strong>Desktop &amp; Apple Support</strong>
+                <span>macOS Fleets, Hardware Troubleshooting</span>
+              </li>
+              <li class="experience-item">
+                <strong>Networking &amp; Telecom</strong>
+                <span>UniFi, Routing, VLANs, VoIP.ms, SIP</span>
+              </li>
+              <li class="experience-item">
+                <strong>Monitoring &amp; Automation</strong>
+                <span>Event alerting, scheduled pipelines</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="editorial-note">
+          <p>
+            <strong>Education &amp; Current Focus:</strong> I hold a B.S. in Computer Information Systems from Southern New Hampshire University. Having previously served in engineering leadership and Cofounder/CTO roles, I approach systems with an emphasis on clarity, operational durability, and user trust.
+          </p>
+          <p>
+            Since May 2025, I have been a full-time father while continuing substantial independent software and infrastructure development. I am particularly drawn to meaningful, practical technology work supporting people and mission-driven organizations.
+          </p>
+        </div>
+
+        <div style="margin-top: 1.5rem;">
+          <a href="/about/" class="btn btn-outline">Read full background &rarr;</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Creative Practice Summary -->
+    <section id="creative">
+      <div class="container">
+        <div class="section-header">
+          <span class="label-tech">Craft &middot; Workshop</span>
+          <h2 class="section-title">Creative Practice</h2>
+          <p class="section-intro">
+            Outside of software and networks, I make tangible things. Physical craft informs the way I write code: both require patience, structure, and respect for the medium.
+          </p>
+        </div>
+
+        <div class="creative-content">
+          <div class="creative-discipline">
+            <h3 class="creative-discipline-title">Photography</h3>
+            <p class="creative-discipline-body">
+              A personal practice focused on architectural geometry, industrial artifacts, and quiet landscapes. Working with medium-format film, darkroom processes, and disciplined digital monochrome.
+            </p>
+            <div style="margin-top: 1rem;">
+              <a href="https://www.flickr.com/photos/andrewtryder/" target="_blank" rel="noopener" class="mono">View photographic work on Flickr &rarr;</a>
+            </div>
+          </div>
+
+          <div class="creative-discipline">
+            <h3 class="creative-discipline-title">Metal Sculpture &amp; Fabrication</h3>
+            <p class="creative-discipline-body">
+              Manual fabrication using steel and titanium. Designing and building functional shop fixtures, structural assemblies, and minimalist geometric sculptures using precision TIG welding and mechanical finishing.
+            </p>
+            <div style="margin-top: 1rem;">
+              <a href="/creative/" class="mono">Read more about the workshop &rarr;</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+      <div class="container">
+        <div class="section-header">
+          <span class="label-tech">Get in Touch</span>
+          <h2 class="section-title">Contact</h2>
+          <p class="section-intro">
+            I am always open to thoughtful conversations about practical software, infrastructure problems, community technology, or fabrication.
+          </p>
+        </div>
+
+        <div class="contact-grid">
+          <div>
+            <p style="font-size: 1.05rem; line-height: 1.65; max-width: 54ch;">
+              If you have a real-world problem that needs solving, an interesting integration project, or simply want to compare notes on tools and systems, feel free to reach out directly.
+            </p>
+            <ul class="contact-channels">
+              <li class="contact-channel-item">
+                <span class="channel-label">Email</span>
+                <span class="channel-value"><a href="mailto:atr@andrewtryder.com">atr@andrewtryder.com</a></span>
+              </li>
+              <li class="contact-channel-item">
+                <span class="channel-label">GitHub</span>
+                <span class="channel-value"><a href="https://github.com/andrewtryder" target="_blank" rel="noopener">github.com/andrewtryder</a></span>
+              </li>
+              <li class="contact-channel-item">
+                <span class="channel-label">LinkedIn</span>
+                <span class="channel-value"><a href="https://www.linkedin.com/in/andrewtryder/" target="_blank" rel="noopener">linkedin.com/in/andrewtryder</a></span>
+              </li>
+              <li class="contact-channel-item">
+                <span class="channel-label">Flickr</span>
+                <span class="channel-value"><a href="https://www.flickr.com/photos/andrewtryder/" target="_blank" rel="noopener">flickr.com/photos/andrewtryder</a></span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container footer-content">
+      <p class="footer-note">
+        Andrew Ryder &middot; Built with plain HTML &amp; CSS &middot; Minimal Practical Workshop
+      </p>
+      <div class="footer-links">
+        <a href="https://github.com/andrewtryder" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://www.linkedin.com/in/andrewtryder/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://www.flickr.com/photos/andrewtryder/" target="_blank" rel="noopener">Flickr</a>
+        <a href="mailto:atr@andrewtryder.com">Email</a>
       </div>
     </div>
-  </div>
-</header>
+  </footer>
 
-<section class="contact" id="contact">
-  <div class="wrap contact-solo">
-    <div class="reveal">
-      <div class="eyebrow mono">Contact</div>
-      <h2>Say hello.</h2>
-      <p>Open to conversations about agile practice, fabrication commissions, or photography prints.</p>
-      <a class="email-link mono" href="mailto:atr@andrewtryder.com">atr@andrewtryder.com &rarr;</a>
-      <div class="socials">
-        <a class="social-btn" href="https://github.com/andrewtryder" aria-label="GitHub" target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24"><path d="M12 .5C5.73.5.5 5.73.5 12c0 5.08 3.29 9.39 7.86 10.91.57.1.78-.25.78-.55v-2.14c-3.2.7-3.88-1.35-3.88-1.35-.52-1.34-1.28-1.7-1.28-1.7-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.71 1.26 3.37.96.1-.75.4-1.26.73-1.55-2.56-.29-5.25-1.28-5.25-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.47.11-3.06 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.79 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.77.11 3.06.74.81 1.19 1.84 1.19 3.1 0 4.43-2.7 5.4-5.27 5.69.42.36.78 1.07.78 2.16v3.2c0 .3.2.66.79.55A10.51 10.51 0 0 0 23.5 12c0-6.27-5.23-11.5-11.5-11.5z"/></svg>
-        </a>
-        <a class="social-btn" href="https://www.linkedin.com/in/andrewtryder/" aria-label="LinkedIn" target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM.5 8.75h8.9v14.75H.5V8.75zm14.2 0h8.53v2.02h.12c1.19-2.13 4.1-2.75 6.14-2.75 6.57 0 7.79 3.85 7.79 8.86v9.62h-8.9v-8.53c0-2.03-.04-4.65-2.83-4.65-2.83 0-3.27 2.21-3.27 4.5v8.68h-8.58V8.75z" transform="scale(.72)"/></svg>
-        </a>
-        <a class="social-btn" href="https://www.flickr.com/in/andrewtryder/" aria-label="Flickr" target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24"><circle cx="7.5" cy="12" r="4.2"/><circle cx="16.5" cy="12" r="4.2"/></svg>
+  <!-- =======================================================================
+       Accessible Native HTML <dialog> Modals
+       ======================================================================= -->
+
+  <!-- Modal 1: PoaIndex -->
+  <dialog id="modal-poaindex" class="project-modal" aria-labelledby="modal-poaindex-title" aria-describedby="modal-poaindex-desc">
+    <div class="modal-inner">
+      <div class="modal-header">
+        <div class="modal-title-wrap">
+          <span class="modal-tag">Independent project &middot; Private source</span>
+          <h2 id="modal-poaindex-title" class="modal-title">PoaIndex</h2>
+          <p id="modal-poaindex-desc" class="modal-subtitle">
+            Historical turfgrass evaluation data synthesis and location-aware cultivar recommendations.
+          </p>
+        </div>
+        <button type="button" class="modal-close-btn" data-modal-close aria-label="Close PoaIndex modal">
+          &times; Close
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <div class="modal-section">
+          <span class="modal-section-title">The Problem</span>
+          <p>
+            The National Turfgrass Evaluation Program (NTEP) publishes valuable agronomic trial data, but the records are dispersed across decades of disparate PDF and tabular reports. Comparing turfgrass cultivars across multiple multi-year trial cycles and identifying varieties proven to perform in specific geographic regions requires laborious manual cross-referencing.
+          </p>
+        </div>
+
+        <div class="modal-section">
+          <span class="modal-section-title">The Approach</span>
+          <p>
+            PoaIndex extracts, audits, and normalizes decades of historical trial results into a structured turfgrass quality corpus. An edge-based scoring and recommendation engine evaluates multi-year cultivar performance consistency against local USDA turf zones and trial locations.
+          </p>
+        </div>
+
+        <div class="modal-section">
+          <span class="modal-section-title">Selected Features</span>
+          <ul class="modal-features-list">
+            <li>Curated historical quality corpus covering multiple grass species and multi-year trial cycles.</li>
+            <li>Location-aware recommendation engine matching regional climate conditions and turf zones.</li>
+            <li>Cultivar search and side-by-side trial quality comparisons.</li>
+            <li>Read-only edge API designed for high-availability querying without credential barriers.</li>
+            <li>Clean static web exploration interface requiring zero account creation.</li>
+          </ul>
+        </div>
+
+        <div class="modal-section">
+          <span class="modal-section-title">Technical Description</span>
+          <div class="modal-tech-box">
+            Ingestion &amp; certification pipeline built in Node.js and TypeScript. Read-only HTTP API hosted on Cloudflare Workers backed by Cloudflare D1 serverless SQLite. Static web front end built with Vite and React. Cold-storage source archive stored in Cloudflare R2.
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <span class="modal-privacy-note">Source code is private.</span>
+        <a href="https://www.poaindex.com/" target="_blank" rel="noopener" class="btn btn-primary">
+          Visit live website (poaindex.com) &rarr;
         </a>
       </div>
     </div>
-  </div>
-</section>
+  </dialog>
 
-<script>
-  // ---- nav scroll state ----
-  const nav = document.getElementById("nav");
-  window.addEventListener("scroll", () => {
-    nav.classList.toggle("scrolled", window.scrollY > 40);
-  }, { passive: true });
+  <!-- Modal 2: NH Fuel Watch -->
+  <dialog id="modal-nhfuelwatch" class="project-modal" aria-labelledby="modal-nhfuelwatch-title" aria-describedby="modal-nhfuelwatch-desc">
+    <div class="modal-inner">
+      <div class="modal-header">
+        <div class="modal-title-wrap">
+          <span class="modal-tag">Independent project &middot; Private source</span>
+          <h2 id="modal-nhfuelwatch-title" class="modal-title">NH Fuel Watch</h2>
+          <p id="modal-nhfuelwatch-desc" class="modal-subtitle">
+            Civic heating-fuel price transparency and municipal provider discovery for New Hampshire residents.
+          </p>
+        </div>
+        <button type="button" class="modal-close-btn" data-modal-close aria-label="Close NH Fuel Watch modal">
+          &times; Close
+        </button>
+      </div>
 
-  // ---- scroll reveal ----
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add("in"); });
-  }, { threshold: 0.15 });
-  document.querySelectorAll(".reveal").forEach(el => io.observe(el));
-</script>
+      <div class="modal-body">
+        <div class="modal-section">
+          <span class="modal-section-title">The Problem</span>
+          <p>
+            Residential heating oil and propane pricing varies considerably across New Hampshire suppliers and fluctuates frequently throughout the winter. Because pricing is scattered across dozens of individual company websites, homeowners lack a centralized, neutral reference for posted cash rates or seasonal price trends.
+          </p>
+        </div>
 
+        <div class="modal-section">
+          <span class="modal-section-title">The Approach</span>
+          <p>
+            NH Fuel Watch operates as a public-benefit civic web application that automatically collects publicly posted prices from regional fuel suppliers daily. Built strictly as an informational utility—not a broker, middleman, or marketplace—it maintains observational integrity by logging discrete, immutable price points with explicit source provenance and observation dates.
+          </p>
+        </div>
+
+        <div class="modal-section">
+          <span class="modal-section-title">Selected Features</span>
+          <ul class="modal-features-list">
+            <li>Daily price tracking for #2 heating oil and propane across New Hampshire municipalities.</li>
+            <li>Provider discovery based on verified municipal service coverage rather than marketing claims.</li>
+            <li>Price observations recorded as immutable integers in mills ($0.001) with source disclosures.</li>
+            <li>Historical price trend visualizations across seasons and regions.</li>
+            <li>Server-rendered civic utility with zero advertising, affiliate links, or bulk scraper APIs.</li>
+          </ul>
+        </div>
+
+        <div class="modal-section">
+          <span class="modal-section-title">Technical Description</span>
+          <div class="modal-tech-box">
+            Full-stack TypeScript application built with React Router v8 using Server-Side Rendering (SSR). Deployed on Cloudflare Workers edge runtime with Cloudflare D1 serverless SQLite. Includes automated scheduled ingestion pipelines with fixture-based scraper verification.
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <span class="modal-privacy-note">Source code is private.</span>
+        <a href="https://nhfuelwatch.com/" target="_blank" rel="noopener" class="btn btn-primary">
+          Visit live website (nhfuelwatch.com) &rarr;
+        </a>
+      </div>
+    </div>
+  </dialog>
+
+  <script src="/js/main.js"></script>
 </body>
 </html>

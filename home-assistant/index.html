@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Home Assistant Integrations — Andrew Ryder</title>
+  <meta name="description" content="Complete index of custom Home Assistant integrations developed and maintained by Andrew Ryder. Clean, text-first directory of open-source smart home components.">
+  <link rel="canonical" href="https://www.andrewtryder.com/home-assistant/">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Home Assistant Integrations — Andrew Ryder">
+  <meta property="og:description" content="Complete index of custom Home Assistant integrations developed and maintained by Andrew Ryder.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.andrewtryder.com/home-assistant/">
+  <meta property="og:site_name" content="Andrew Ryder">
+
+  <!-- Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a href="/" class="site-title" aria-label="Andrew Ryder Home">Andrew Ryder</a>
+      <nav class="site-nav" aria-label="Primary Navigation">
+        <a href="/" class="nav-link">Home</a>
+        <a href="/projects/" class="nav-link">Projects</a>
+        <a href="/home-assistant/" class="nav-link active" aria-current="page">Home Assistant</a>
+        <a href="/about/" class="nav-link">About</a>
+        <a href="/creative/" class="nav-link">Creative</a>
+        <a href="/contact/" class="nav-link">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <section>
+      <div class="container">
+        <div class="section-header">
+          <span class="label-tech">Ecosystem &middot; HACS</span>
+          <h1 class="section-title">Home Assistant Integrations</h1>
+          <p class="section-intro">
+            A complete index of custom Home Assistant integrations I have authored and published. Each component bridges real-world devices, utilities, and communication services into local smart home dashboards and automations.
+          </p>
+        </div>
+
+        <div style="margin-top: 2rem;">
+          <table class="ha-index-table" aria-label="Complete Collection of Home Assistant Integrations">
+            <thead>
+              <tr style="border-bottom: 2px solid var(--border); text-align: left;">
+                <th style="padding: 0.75rem 1rem 0.75rem 0; font-family: var(--font-mono); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-muted);">Integration</th>
+                <th style="padding: 0.75rem 1rem; font-family: var(--font-mono); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-muted);">Functional Description</th>
+                <th style="padding: 0.75rem 0 0.75rem 1rem; font-family: var(--font-mono); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-muted); text-align: right;">Source</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- eBay -->
+              <tr class="ha-row">
+                <td class="ha-cell-name">
+                  <span class="ha-name">eBay</span>
+                </td>
+                <td class="ha-cell-desc">
+                  Read-only activity monitor exposing watched items, bidding activity, active listings, seller operational metrics, and account health via sensors, events, and calendar entities.
+                </td>
+                <td class="ha-cell-link">
+                  <a href="https://github.com/andrewtryder/ha-ebay" target="_blank" rel="noopener">GitHub &rarr;</a>
+                </td>
+              </tr>
+
+              <!-- EcoWater Cloud -->
+              <tr class="ha-row">
+                <td class="ha-cell-name">
+                  <span class="ha-name">EcoWater Cloud</span>
+                </td>
+                <td class="ha-cell-desc">
+                  Asynchronous integration for EcoWater cloud-connected water softeners and treatment systems, monitoring daily water consumption, salt level status, and device operational telemetry.
+                </td>
+                <td class="ha-cell-link">
+                  <a href="https://github.com/andrewtryder/ha-ecowater-cloud" target="_blank" rel="noopener">GitHub &rarr;</a>
+                </td>
+              </tr>
+
+              <!-- Eversource Rates -->
+              <tr class="ha-row">
+                <td class="ha-cell-name">
+                  <span class="ha-name">Eversource Rates</span>
+                </td>
+                <td class="ha-cell-desc">
+                  Retrieves public Eversource electricity tariffs to provide live USD/kWh rates for the Home Assistant Energy dashboard, with optional monitoring of municipal-level electrical outage reports.
+                </td>
+                <td class="ha-cell-link">
+                  <a href="https://github.com/andrewtryder/ha-eversource" target="_blank" rel="noopener">GitHub &rarr;</a>
+                </td>
+              </tr>
+
+              <!-- Hero Health -->
+              <tr class="ha-row">
+                <td class="ha-cell-name">
+                  <span class="ha-name">Hero Health</span>
+                </td>
+                <td class="ha-cell-desc">
+                  Home Assistant integration for the Hero smart medication dispenser, tracking schedule adherence, doses taken and missed, refill reminders, and cartridge pill levels.
+                </td>
+                <td class="ha-cell-link">
+                  <a href="https://github.com/andrewtryder/ha-herohealth" target="_blank" rel="noopener">GitHub &rarr;</a>
+                </td>
+              </tr>
+
+              <!-- iGuardStove -->
+              <tr class="ha-row">
+                <td class="ha-cell-name">
+                  <span class="ha-name">iGuardStove</span>
+                </td>
+                <td class="ha-cell-desc">
+                  Safety monitoring and remote emergency control for iGuardStove / iGuardFire intelligent stove shutoff devices, reporting live status, temperature thresholds, and motion events.
+                </td>
+                <td class="ha-cell-link">
+                  <a href="https://github.com/andrewtryder/ha-iguardstove" target="_blank" rel="noopener">GitHub &rarr;</a>
+                </td>
+              </tr>
+
+              <!-- myQ Garage -->
+              <tr class="ha-row">
+                <td class="ha-cell-name">
+                  <span class="ha-name">myQ Garage</span>
+                </td>
+                <td class="ha-cell-desc">
+                  Read-only garage door cover integration that synchronizes with an external Cloudflare Worker parsing real-time myQ notification emails to report door open/closed status reliably.
+                </td>
+                <td class="ha-cell-link">
+                  <a href="https://github.com/andrewtryder/ha-myq-garage" target="_blank" rel="noopener">GitHub &rarr;</a>
+                </td>
+              </tr>
+
+              <!-- Smart Oil Gauge -->
+              <tr class="ha-row">
+                <td class="ha-cell-name">
+                  <span class="ha-name">Smart Oil Gauge</span>
+                </td>
+                <td class="ha-cell-desc">
+                  Connects heating oil storage tanks to Home Assistant via Connected Consumer Fuel web services, exposing gallons remaining, tank percentage, daily burn rates, and runout projections.
+                </td>
+                <td class="ha-cell-link">
+                  <a href="https://github.com/andrewtryder/ha-smart-oil-gauge" target="_blank" rel="noopener">GitHub &rarr;</a>
+                </td>
+              </tr>
+
+              <!-- SunsetHue -->
+              <tr class="ha-row">
+                <td class="ha-cell-name">
+                  <span class="ha-name">SunsetHue</span>
+                </td>
+                <td class="ha-cell-desc">
+                  Integrates with the SunsetHue developer API to provide multi-day sunrise and sunset quality predictions, cloud coverage metrics, event azimuth, and golden/blue hour periods.
+                </td>
+                <td class="ha-cell-link">
+                  <a href="https://github.com/andrewtryder/ha-sunsethue" target="_blank" rel="noopener">GitHub &rarr;</a>
+                </td>
+              </tr>
+
+              <!-- VoIP.ms -->
+              <tr class="ha-row">
+                <td class="ha-cell-name">
+                  <span class="ha-name">VoIP.ms</span>
+                </td>
+                <td class="ha-cell-desc">
+                  Comprehensive integration for VoIP.ms accounts, providing balance sensors, SIP registration binary sensors, inbound SMS webhook event triggers, and an outbound SMS service.
+                </td>
+                <td class="ha-cell-link">
+                  <a href="https://github.com/andrewtryder/ha-voipms" target="_blank" rel="noopener">GitHub &rarr;</a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="editorial-note" style="margin-top: 3.5rem;">
+          <p>
+            <strong>Maintenance &amp; Architecture:</strong> All nine integrations are open-source and maintained with standard HACS repository layouts, strict type validation, and automated GitHub Actions verification workflows.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-content">
+      <p class="footer-note">
+        Andrew Ryder &middot; Built with plain HTML &amp; CSS &middot; Minimal Practical Workshop
+      </p>
+      <div class="footer-links">
+        <a href="https://github.com/andrewtryder" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://www.linkedin.com/in/andrewtryder/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://www.flickr.com/photos/andrewtryder/" target="_blank" rel="noopener">Flickr</a>
+        <a href="mailto:atr@andrewtryder.com">Email</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+</body>
+</html>
