@@ -6,6 +6,10 @@
   },
   "scripts": {
     "dev": "npx serve .",
+    "preview:netlify": "netlify dev",
     "start": "python3 -m http.server 8000"
+  },
+  "devDependencies": {
+    "netlify-cli": "^27.12.0"
   }
 }

@@ -53,12 +53,12 @@ andrewtryder-website/
 
 Because this site is built purely with clean semantic HTML, vanilla CSS, and minimal vanilla JavaScript, no build step or bundler is required.
 
-### 1. Run with Python (Standard)
+### 1. Run with Netlify CLI
 
 ```bash
-python3 -m http.server 8000
+npm run preview:netlify
+# or: npx netlify dev
 ```
-Then visit [http://localhost:8000](http://localhost:8000).
 
 ### 2. Run with Node / npx
 
@@ -66,6 +66,14 @@ Then visit [http://localhost:8000](http://localhost:8000).
 npm run dev
 # or: npx serve .
 ```
+
+### 3. Run with Python
+
+```bash
+npm run start
+# or: python3 -m http.server 8000
+```
+Then visit [http://localhost:8000](http://localhost:8000).
 
 ---
 
