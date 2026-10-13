@@ -1,6 +1,6 @@
 /**
  * Andrew Ryder — Personal Website
- * Minimal, accessible dialog controller and progressive enhancement
+ * Minimal, accessible native dialog controller with focus restoration
  */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -8,30 +8,37 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function initProjectModals() {
-  const modalTriggers = document.querySelectorAll('[data-modal-target]');
   const dialogs = document.querySelectorAll('dialog.project-modal');
   let lastFocusedTrigger = null;
 
-  modalTriggers.forEach(trigger => {
-    trigger.addEventListener('click', (e) => {
-      e.preventDefault();
-      const targetId = trigger.getAttribute('data-modal-target');
-      const dialog = document.getElementById(targetId);
+  // Delegated click handler for modal openers
+  document.addEventListener('click', (e) => {
+    // Check if clicked element or parent is a modal trigger or project card
+    const trigger = e.target.closest('[data-modal-target]');
+    if (!trigger) return;
 
-      if (dialog && typeof dialog.showModal === 'function') {
-        lastFocusedTrigger = trigger;
-        dialog.showModal();
+    // Prevent navigation for modal triggers when JS is active
+    e.preventDefault();
 
-        // Focus the close button for accessibility
-        const closeBtn = dialog.querySelector('.modal-close-btn');
-        if (closeBtn) {
-          closeBtn.focus();
-        }
-      } else if (dialog) {
-        // Fallback for older browsers without native showModal
-        dialog.setAttribute('open', '');
+    const targetId = trigger.getAttribute('data-modal-target');
+    const dialog = document.getElementById(targetId);
+    if (!dialog) return;
+
+    // Save focused element for restoration upon close
+    lastFocusedTrigger = trigger.matches('a, button') ? trigger : trigger.querySelector('a, button') || trigger;
+
+    if (typeof dialog.showModal === 'function') {
+      dialog.showModal();
+
+      // Set focus to the close button for keyboard accessibility
+      const closeBtn = dialog.querySelector('.modal-close-btn');
+      if (closeBtn) {
+        closeBtn.focus();
       }
-    });
+    } else {
+      // Fallback for browsers without native showModal support
+      dialog.setAttribute('open', '');
+    }
   });
 
   dialogs.forEach(dialog => {
@@ -43,28 +50,32 @@ function initProjectModals() {
       });
     });
 
-    // Close when clicking outside modal (backdrop click)
+    // Close when clicking directly on the backdrop (outside dialog contents)
     dialog.addEventListener('click', (e) => {
+      // In native HTML <dialog>, clicks on the backdrop have e.target === dialog
+      if (e.target !== dialog) return;
+
       const rect = dialog.getBoundingClientRect();
-      const isInDialog = (
+      const isInside = (
         rect.top <= e.clientY &&
         e.clientY <= rect.top + rect.height &&
         rect.left <= e.clientX &&
         e.clientX <= rect.left + rect.width
       );
 
-      if (!isInDialog) {
+      if (!isInside) {
         dialog.close();
       }
     });
 
-    // Restore focus to opener when dialog closes
+    // Restore focus to opener when dialog closes (by button, Escape key, or backdrop click)
     dialog.addEventListener('close', () => {
-      if (lastFocusedTrigger) {
+      if (lastFocusedTrigger && typeof lastFocusedTrigger.focus === 'function') {
         lastFocusedTrigger.focus();
         lastFocusedTrigger = null;
       }
-      // If hash was set, remove it cleanly
+
+      // If URL hash matches this modal, clear it cleanly
       if (window.location.hash.startsWith('#modal-')) {
         history.replaceState(null, '', window.location.pathname + window.location.search);
       }
@@ -72,12 +83,16 @@ function initProjectModals() {
   });
 
   // Check URL hash on page load for direct modal deep links
-  if (window.location.hash) {
+  if (window.location.hash && window.location.hash.startsWith('#modal-')) {
     const hashTarget = window.location.hash.replace('#modal-', '');
     if (hashTarget) {
       const matchingDialog = document.getElementById(`modal-${hashTarget}`);
       if (matchingDialog && typeof matchingDialog.showModal === 'function') {
         matchingDialog.showModal();
+        const closeBtn = matchingDialog.querySelector('.modal-close-btn');
+        if (closeBtn) {
+          closeBtn.focus();
+        }
       }
     }
   }
