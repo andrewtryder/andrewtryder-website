@@ -9,36 +9,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function initProjectModals() {
   const dialogs = document.querySelectorAll('dialog.project-modal');
-  let lastFocusedTrigger = null;
+  const openers = document.querySelectorAll('a[data-modal-target]');
+  const openersByDialog = new WeakMap();
 
-  // Delegated click handler for modal openers
-  document.addEventListener('click', (e) => {
-    // Check if clicked element or parent is a modal trigger or project card
-    const trigger = e.target.closest('[data-modal-target]');
-    if (!trigger) return;
+  openers.forEach((opener) => {
+    opener.addEventListener('click', (event) => {
+      const targetId = opener.getAttribute('data-modal-target');
+      const dialog = targetId ? document.getElementById(targetId) : null;
 
-    // Prevent navigation for modal triggers when JS is active
-    e.preventDefault();
+      // Leave the ordinary link intact when a native dialog is unavailable.
+      if (!(dialog instanceof HTMLDialogElement) || typeof dialog.showModal !== 'function') return;
 
-    const targetId = trigger.getAttribute('data-modal-target');
-    const dialog = document.getElementById(targetId);
-    if (!dialog) return;
-
-    // Save focused element for restoration upon close
-    lastFocusedTrigger = trigger.matches('a, button') ? trigger : trigger.querySelector('a, button') || trigger;
-
-    if (typeof dialog.showModal === 'function') {
-      dialog.showModal();
-
-      // Set focus to the close button for keyboard accessibility
-      const closeBtn = dialog.querySelector('.modal-close-btn');
-      if (closeBtn) {
-        closeBtn.focus();
-      }
-    } else {
-      // Fallback for browsers without native showModal support
-      dialog.setAttribute('open', '');
-    }
+      event.preventDefault();
+      openersByDialog.set(dialog, opener);
+      if (!dialog.open) dialog.showModal();
+      dialog.querySelector('.modal-close-btn')?.focus();
+    });
   });
 
   dialogs.forEach(dialog => {
@@ -46,7 +32,7 @@ function initProjectModals() {
     const closeButtons = dialog.querySelectorAll('[data-modal-close]');
     closeButtons.forEach(btn => {
       btn.addEventListener('click', () => {
-        dialog.close();
+        if (dialog.open) dialog.close();
       });
     });
 
@@ -63,37 +49,24 @@ function initProjectModals() {
         e.clientX <= rect.left + rect.width
       );
 
-      if (!isInside) {
+      if (!isInside && dialog.open) {
         dialog.close();
       }
     });
 
     // Restore focus to opener when dialog closes (by button, Escape key, or backdrop click)
     dialog.addEventListener('close', () => {
-      if (lastFocusedTrigger && typeof lastFocusedTrigger.focus === 'function') {
-        lastFocusedTrigger.focus();
-        lastFocusedTrigger = null;
-      }
-
-      // If URL hash matches this modal, clear it cleanly
-      if (window.location.hash.startsWith('#modal-')) {
-        history.replaceState(null, '', window.location.pathname + window.location.search);
-      }
+      const opener = openersByDialog.get(dialog);
+      if (opener && opener.isConnected) opener.focus();
+      openersByDialog.delete(dialog);
     });
   });
 
   // Check URL hash on page load for direct modal deep links
-  if (window.location.hash && window.location.hash.startsWith('#modal-')) {
-    const hashTarget = window.location.hash.replace('#modal-', '');
-    if (hashTarget) {
-      const matchingDialog = document.getElementById(`modal-${hashTarget}`);
-      if (matchingDialog && typeof matchingDialog.showModal === 'function') {
-        matchingDialog.showModal();
-        const closeBtn = matchingDialog.querySelector('.modal-close-btn');
-        if (closeBtn) {
-          closeBtn.focus();
-        }
-      }
-    }
+  const hashTarget = window.location.hash.match(/^#(modal-[\w-]+)$/)?.[1];
+  const matchingDialog = hashTarget ? document.getElementById(hashTarget) : null;
+  if (matchingDialog instanceof HTMLDialogElement && typeof matchingDialog.showModal === 'function') {
+    matchingDialog.showModal();
+    matchingDialog.querySelector('.modal-close-btn')?.focus();
   }
 }

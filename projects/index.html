@@ -56,36 +56,36 @@
 
           <div class="selected-work-grid">
             <!-- PoaIndex -->
-            <article class="project-card" data-modal-target="modal-poaindex">
+            <a class="project-card" href="https://www.poaindex.com/" data-modal-target="modal-poaindex" aria-haspopup="dialog">
               <div class="project-card-header">
                 <span class="project-card-tag">Independent project &middot; Private source</span>
                 <h3 class="project-card-title">
-                  <a href="https://www.poaindex.com/" data-modal-target="modal-poaindex" target="_blank" rel="noopener">PoaIndex</a>
+                  PoaIndex
                 </h3>
                 <p class="project-card-description">
-                  Making turfgrass research easier to compare through historical trial data and location-aware species and cultivar recommendations.
+                  Making historical turfgrass trial research easier to compare, with cultivar recommendations grounded in local and regional evidence.
                 </p>
               </div>
               <div class="project-card-footer">
-                <a href="https://www.poaindex.com/" class="card-action-link" data-modal-target="modal-poaindex" target="_blank" rel="noopener">Learn more <span class="visually-hidden">about PoaIndex</span> &rarr;</a>
+                <span class="card-action-link">Learn more <span class="visually-hidden">about PoaIndex</span> &rarr;</span>
               </div>
-            </article>
+            </a>
 
             <!-- NH Fuel Watch -->
-            <article class="project-card" data-modal-target="modal-nhfuelwatch">
+            <a class="project-card" href="https://nhfuelwatch.com/" data-modal-target="modal-nhfuelwatch" aria-haspopup="dialog">
               <div class="project-card-header">
                 <span class="project-card-tag">Independent project &middot; Private source</span>
                 <h3 class="project-card-title">
-                  <a href="https://nhfuelwatch.com/" data-modal-target="modal-nhfuelwatch" target="_blank" rel="noopener">NH Fuel Watch</a>
+                  NH Fuel Watch
                 </h3>
                 <p class="project-card-description">
                   Helping New Hampshire residents discover heating-fuel providers, compare publicly posted oil and propane prices, and explore historical trends.
                 </p>
               </div>
               <div class="project-card-footer">
-                <a href="https://nhfuelwatch.com/" class="card-action-link" data-modal-target="modal-nhfuelwatch" target="_blank" rel="noopener">Learn more <span class="visually-hidden">about NH Fuel Watch</span> &rarr;</a>
+                <span class="card-action-link">Learn more <span class="visually-hidden">about NH Fuel Watch</span> &rarr;</span>
               </div>
-            </article>
+            </a>
           </div>
         </div>
 
@@ -178,7 +178,7 @@
           <span class="modal-tag">Independent project &middot; Private source</span>
           <h2 id="modal-poaindex-title" class="modal-title">PoaIndex</h2>
           <p id="modal-poaindex-desc" class="modal-subtitle">
-            Historical turfgrass evaluation data synthesis and location-aware cultivar recommendations.
+            Historical turfgrass evaluation data synthesis and evidence-based cultivar recommendations.
           </p>
         </div>
         <button type="button" class="modal-close-btn" data-modal-close aria-label="Close PoaIndex modal">
@@ -197,7 +197,7 @@
         <div class="modal-section">
           <span class="modal-section-title">The Approach</span>
           <p>
-            PoaIndex extracts, audits, and normalizes decades of historical trial results into a structured turfgrass quality corpus. An edge-based scoring and recommendation engine evaluates multi-year cultivar performance consistency against local USDA turf zones and trial locations.
+            PoaIndex extracts, audits, and normalizes historical trial results into a structured turfgrass quality corpus. Its recommendations weigh local trial evidence, regional multi-year support, recency, and confidence adjustments; turf-zone information is presented separately as supporting context.
           </p>
         </div>
 
@@ -205,7 +205,7 @@
           <span class="modal-section-title">Selected Features</span>
           <ul class="modal-features-list">
             <li>Curated historical quality corpus covering multiple grass species and multi-year trial cycles.</li>
-            <li>Location-aware recommendation engine matching regional climate conditions and turf zones.</li>
+            <li>Recommendations informed by local trial evidence, regional support, recency, and confidence.</li>
             <li>Cultivar search and side-by-side trial quality comparisons.</li>
             <li>Read-only edge API designed for high-availability querying without credential barriers.</li>
             <li>Clean static web exploration interface requiring zero account creation.</li>
@@ -256,18 +256,18 @@
         <div class="modal-section">
           <span class="modal-section-title">The Approach</span>
           <p>
-            NH Fuel Watch operates as a public-benefit civic web application that automatically collects publicly posted prices from regional fuel suppliers daily. Built strictly as an informational utility—not a broker, middleman, or marketplace—it maintains observational integrity by logging discrete, immutable price points with explicit source provenance and observation dates.
+            NH Fuel Watch is an independent public-benefit information resource for provider-published prices and service-area details. It is not a broker, middleman, or marketplace; each recorded observation includes its source and when that source was checked. Advertised prices may differ from a provider's final delivered price.
           </p>
         </div>
 
         <div class="modal-section">
           <span class="modal-section-title">Selected Features</span>
           <ul class="modal-features-list">
-            <li>Daily price tracking for #2 heating oil and propane across New Hampshire municipalities.</li>
-            <li>Provider discovery based on verified municipal service coverage rather than marketing claims.</li>
+            <li>Tracked public price observations for #2 heating oil and propane where providers publish them.</li>
+            <li>Provider discovery based on documented municipal service coverage.</li>
             <li>Price observations recorded as immutable integers in mills ($0.001) with source disclosures.</li>
             <li>Historical price trend visualizations across seasons and regions.</li>
-            <li>Server-rendered civic utility with zero advertising, affiliate links, or bulk scraper APIs.</li>
+            <li>Source links and observation dates to support direct verification with each provider.</li>
           </ul>
         </div>
 

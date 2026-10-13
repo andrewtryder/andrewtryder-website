@@ -43,6 +43,7 @@ andrewtryder-website/
 │   └── style.css               # Design tokens, typography, responsive layout, dialog styles
 ├── js/
 │   └── main.js                 # Native <dialog> modal controller with focus restoration
+├── scripts/build-static.mjs    # Dependency-free static output builder
 ├── netlify.toml                # Netlify deployment configuration
 └── package.json                # Project metadata and local preview scripts
 ```
@@ -51,35 +52,39 @@ andrewtryder-website/
 
 ## Local Development
 
-Because this site is built purely with clean semantic HTML, vanilla CSS, and minimal vanilla JavaScript, no build step or bundler is required.
+The site is authored as semantic HTML, vanilla CSS, and minimal vanilla JavaScript. Netlify serves a generated `dist/` directory so repository files and development dependencies are never published.
 
-### 1. Run with Netlify CLI
+### 1. Install and run locally
 
 ```bash
+npm install
 npm run preview:netlify
-# or: npx netlify dev
 ```
 
-### 2. Run with Node / npx
+Netlify CLI prints the local preview URL (normally `http://localhost:8888`). Use this as the primary development command because it follows the Netlify configuration.
+
+### 2. Build and test the deployable output
 
 ```bash
-npm run dev
-# or: npx serve .
+npm run build
+npm run preview:dist
 ```
 
-### 3. Run with Python
+Then visit [http://localhost:8000](http://localhost:8000). The generated `dist/` directory contains only the six static pages and their shared CSS and JavaScript assets.
+
+### 3. Simple source preview
 
 ```bash
 npm run start
-# or: python3 -m http.server 8000
 ```
-Then visit [http://localhost:8000](http://localhost:8000).
+
+This is useful for quick source-only iteration; it does not reproduce Netlify's build step.
 
 ---
 
 ## Features & Accessibility
 
-- **Native `<dialog>` Modals**: Deep-dive modals for PoaIndex and NH Fuel Watch use native HTML `<dialog>` with focus trapping, Escape-to-close, backdrop click dismissal, and focus restoration to the opening button.
+- **Native `<dialog>` Modals**: Deep-dive modals for PoaIndex and NH Fuel Watch use native HTML `<dialog>` with Escape-to-close, backdrop dismissal, and focus restoration to the opening link.
 - **Progressive Enhancement**: All primary application links work directly without JavaScript enabled.
 - **Keyboard Navigation**: Includes standard `:focus-visible` styling and a hidden skip-link for screen readers and keyboard users.
 - **Reduced Motion**: Respects `prefers-reduced-motion: reduce` by disabling smooth scrolling and transitions.
@@ -89,5 +94,10 @@ Then visit [http://localhost:8000](http://localhost:8000).
 
 ## Deployment & Hosting
 
-- Hosted on **Netlify** configured via `netlify.toml` (`publish = "."`, `command = "true"`).
-- All changes are currently committed locally to the `redesign` branch. No production deployments, pushes, or PRs are initiated without explicit approval.
+- Hosted on **Netlify** configured via `netlify.toml` (`publish = "dist"`, `command = "npm run build"`).
+- The `redesign` branch is pushed to GitHub and remains separate from the production `main` branch. Netlify is configured to build `main`; merging is a deliberate production-release step.
+- Do not deploy, merge, or push changes without explicit approval.
+
+## Content maintenance
+
+The two project dialogs are intentionally duplicated in `index.html` and `projects/index.html` so their content remains available in static HTML on both routes. Update the matching PoaIndex and NH Fuel Watch blocks together; their cards and dialogs use the same wording.
