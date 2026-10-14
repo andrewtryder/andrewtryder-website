@@ -13,6 +13,8 @@ const deployablePaths = [
   'css',
   'js',
   'assets',
+  'favicon.ico',
+  'apple-touch-icon.png',
 ];
 
 await rm(output, { recursive: true, force: true });

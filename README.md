@@ -36,7 +36,7 @@ andrewtryder-website/
 ├── about/
 │   └── index.html              # Technical experience & background
 ├── creative/
-│   └── index.html              # Photography & metal sculpture practice
+│   └── index.html              # Photography portfolio
 ├── contact/
 │   └── index.html              # Direct communication channels
 ├── css/
