@@ -321,15 +321,6 @@ section:last-of-type {
   border-bottom: 0;
 }
 
-.hero-eyebrow {
-  font-family: var(--font-mono);
-  font-size: 0.82rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--accent-evergreen);
-  margin-bottom: 1rem;
-  display: block;
-}
 
 .hero-headline {
   font-size: clamp(3rem, 5.4vw, 4.25rem);
