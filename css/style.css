@@ -647,6 +647,49 @@ section:last-of-type {
   }
 }
 
+/* About Page Introduction & Portrait */
+.about-intro-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+.about-intro-text {
+  max-width: var(--reading-width);
+}
+
+.about-portrait-wrap {
+  width: 100%;
+  max-width: 280px;
+}
+
+.about-portrait {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  background-color: var(--bg-card);
+}
+
+@media (min-width: 768px) {
+  .about-intro-grid {
+    grid-template-columns: 1fr 280px;
+    gap: 3rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .about-intro-grid {
+    grid-template-columns: 1fr 300px;
+    gap: 3.5rem;
+  }
+  .about-portrait-wrap {
+    max-width: 300px;
+  }
+}
+
 /* Technical Experience & Practical Workshop Background */
 .experience-grid {
   display: grid;

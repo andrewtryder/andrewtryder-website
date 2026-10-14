@@ -12,6 +12,7 @@ const deployablePaths = [
   'projects',
   'css',
   'js',
+  'assets',
 ];
 
 await rm(output, { recursive: true, force: true });
